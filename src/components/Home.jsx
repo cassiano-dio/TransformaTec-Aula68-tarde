@@ -8,6 +8,25 @@ import ltc from '../assets/ltc.png'
 
 const Home = () => {
 
+    const mainContainer = {
+        display: 'flex',
+        flexDirection: 'row',
+    }
+
+    const cardsContainer = {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        alignContent: 'center',
+        marginTop: '10%',
+        paddingTop: '5%',
+        paddingBottom: '5%',
+        fontSize: '18px',
+        borderRadius: '5px',
+        border: '1px solid cadetblue',
+        color:'dimgray',
+    }
+
     const tiles = [
         {id: 1, icon: btc, name: 'BTC', rate: 135000},
         {id: 2, icon: eth, name: 'ETH', rate: 7500},
@@ -26,10 +45,10 @@ const Home = () => {
     }
 
     return (
-        <div>
+        <div style={mainContainer}>
             <div>
                 <div>
-                    <div>
+                    <div style={cardsContainer}>
                         {
                             tiles.map(
                                 (coin) =>(
@@ -44,9 +63,11 @@ const Home = () => {
                         }
                     </div>
                 </div>
-                <BuyForm data={selectedTile} onPurchase={buildList}/>
-                <div>
-                    <Transactions list={list} />
+                <div className='forms-container'>
+                    <BuyForm data={selectedTile} onPurchase={buildList}/>
+                    <div>
+                        <Transactions list={list} />
+                    </div>
                 </div>
             </div>
         </div>
