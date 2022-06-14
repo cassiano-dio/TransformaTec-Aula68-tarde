@@ -8,11 +8,11 @@ const CryptoTile = ({data, selectedTile, onClick}) => {
 
     return (
         <div 
-            className={`card ${selectedTile && 'selected'}`}
+            className={`card ${selectedTile}`}
             onClick={handleClick}
         >
             <div>
-                <img src={icon} alt="icon" className='coin-icon'/>
+                <img src={icon} alt="icon" />
                 <div>{name}</div>
                 <div>{rate}</div>
             </div>
