@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './styles.module.css';
 
 const Transactions = ({list}) => {
 
     return (
-        <div>
+        <div className={styles.transactionsListContainer}>
 
             <h4>Lista de transações</h4>
             {
@@ -11,11 +12,14 @@ const Transactions = ({list}) => {
                 list.length ? list.map(
 
                     (item) => (
-                        <div key={item.id}>
-                            <strong>{item.name}</strong>
-                            {":"}
-                            <span>{item.converted}</span>
+                        <div>
+                            <div key={item.id} className={styles.transactionLine}>
+                                <div className='transaction-name'>{item.id}</div>
+                                <div className='transaction-name'><strong>{item.name}</strong></div>
+                                <div className='transaction-value'>{item.converted}</div>
+                            </div>
                         </div>
+                        
                     )
 
                 ):(
